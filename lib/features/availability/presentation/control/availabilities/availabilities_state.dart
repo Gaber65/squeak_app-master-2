@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 
 import 'package:squeak/features/availability/domain/entities/availabilities/get_availabilities_entities.dart';
+=======
+part of 'availabilities_cubit.dart';
+>>>>>>> cfea7653adc36927385dfeff26af1e75b2e48eb4
 
 abstract class AvailabilitiesState {}
 
