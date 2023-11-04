@@ -1,19 +1,21 @@
 import 'package:dartz/dartz.dart';
+import 'package:squeak/features/availability/domain/repository/base_availabilities_repository.dart';
 
 import '../../../../../../core/error/failure.dart';
 import '../../../../../../core/usecase/base_usecase.dart';
-import '../../entities/availabilities/create_availabilities_entities.dart';
-import '../../repository/base_availabilities_repository.dart';
+import '../../entities/Appointments/update_appointments_entities.dart';
+import '../../entities/appointments/update_appointments.dart';
+import '../../entities/availabilities/update_av.dart';
 
 
-class UpdateAvailabilitiesUseCase extends BaseUseCase<CreateAvailabilitiesEntities, CreateAvailabilitiesParameters> {
-  final BaseAvailabilitiesRepository baseAvailabilitiesRepository;
+class UpdateAppointmentsUseCase extends BaseUseCase<UpdateAppointments, CreateAppointmentsParameters> {
+  final BaseAvailabilitiesRepository baseAppointmentsRepository;
 
-  UpdateAvailabilitiesUseCase(this.baseAvailabilitiesRepository);
+  UpdateAppointmentsUseCase(this.baseAppointmentsRepository);
 
   @override
-  Future<Either<Failure, CreateAvailabilitiesEntities>> call(CreateAvailabilitiesParameters parameters)async {
-    return await baseAvailabilitiesRepository.updateAvailabilities(parameters);
+  Future<Either<Failure, UpdateAppointments>> call(CreateAppointmentsParameters parameters)async {
+    return await baseAppointmentsRepository.updateAppointments(parameters);
   }
 }
 

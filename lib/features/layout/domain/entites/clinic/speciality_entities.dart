@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../authentication/login/domain/entities/login.dart';
+import '../../../../authentication/login/domain/entities/login.dart';
 
 class SpecialitiesEntities extends Equatable {
   dynamic success;

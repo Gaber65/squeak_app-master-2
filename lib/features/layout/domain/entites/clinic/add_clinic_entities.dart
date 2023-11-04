@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../authentication/login/domain/entities/login.dart';
+import '../../../../authentication/login/domain/entities/login.dart';
 
 class AddClinicEntities extends Equatable {
   dynamic success;
-  Errors? errors;
+  Map<String, List<dynamic>>? errors;
   AddClinicData? data;
   dynamic? message;
   int? statusCode;
@@ -22,14 +22,14 @@ class AddClinicEntities extends Equatable {
 }
 
 class AddClinicData extends Equatable {
-  final String name;
-  final String location;
-  final String city;
-  final String address;
-  final String phone;
-  final String speciality;
-  final String image;
-  final String adminId;
+  final dynamic name;
+  final dynamic location;
+  final dynamic city;
+  final dynamic address;
+  final dynamic phone;
+  final dynamic speciality;
+  final dynamic image;
+  final dynamic adminId;
 
   const AddClinicData({
     required this.name,
@@ -43,11 +43,7 @@ class AddClinicData extends Equatable {
   });
 
   @override
-  List<Object> get props => [
-        name,
-        location,
-        city,
-        address,
+  List<Object?> get props => [
         phone,
         speciality,
         adminId,

@@ -8,8 +8,10 @@ import '../entities/reset_password.dart';
 
 abstract class BaseLoginRepository {
   Future<Either<Failure, Login>> getUserLogin(LoginParameters parameters);
+
   Future<Either<Failure, ForgetPassword>> getForgetPassword(
       ForgetPasswordParameters parameters);
+
   Future<Either<Failure, ResetPassword>> getResetPassword(
       ResetPasswordParameters parameters);
 }
@@ -24,7 +26,8 @@ class LoginParameters extends Equatable {
   });
 
   @override
-  List<Object?> get props => [
+  List<Object?> get props =>
+      [
         email,
         password,
       ];
@@ -38,7 +41,8 @@ class ForgetPasswordParameters extends Equatable {
   });
 
   @override
-  List<Object?> get props => [
+  List<Object?> get props =>
+      [
         email,
       ];
 }
@@ -46,12 +50,16 @@ class ForgetPasswordParameters extends Equatable {
 class ResetPasswordParameters extends Equatable {
   final String token;
   final String password;
+  final String confirmNewPassword;
+  final String email;
 
   const ResetPasswordParameters({
     required this.token,
     required this.password,
+    required this.email,
+    required this.confirmNewPassword,
   });
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [token, password, email];
 }

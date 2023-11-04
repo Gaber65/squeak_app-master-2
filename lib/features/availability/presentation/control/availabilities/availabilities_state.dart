@@ -1,4 +1,5 @@
-part of 'availabilities_cubit.dart';
+
+import 'package:squeak/features/availability/domain/entities/availabilities/get_availabilities_entities.dart';
 
 abstract class AvailabilitiesState {}
 

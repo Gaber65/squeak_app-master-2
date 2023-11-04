@@ -10,27 +10,26 @@ import '../../../domain/usecase/get_verification_code_use_case.dart';
 
 
 class VerificationCodeCubit extends Cubit<VerificationCodeState> {
-  VerificationCodeCubit(
-    this.getVerificationCodeUseCase,
-  ) : super(VerificationInitialCodeState());
+  VerificationCodeCubit(this.getVerificationCodeUseCase,) : super(VerificationInitialCodeState());
 
   final GetVerificationCodeUseCase getVerificationCodeUseCase;
   VerificationCode? verificationCode;
 
   static VerificationCodeCubit get(context) => BlocProvider.of(context);
 
-  var verificationTokenController = TextEditingController();
 
   var formKey = GlobalKey<FormState>();
 
   void getVerificationCode({
     required String verificationToken,
+    required String email,
   }) async {
     emit(GetVerificationLoadingState());
 
     final result = await getVerificationCodeUseCase(
       VerificationParameters(
         verificationToken: verificationToken,
+        email: email
       ),
     );
 

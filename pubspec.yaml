@@ -36,12 +36,13 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+
+
+
   dartz: ^0.10.1
   equatable: ^2.0.5
   dio:
   http:
-  bloc: ^8.1.2
   flutter_bloc: ^8.1.3
   shared_preferences: ^2.1.1
   get_it: ^7.6.0
@@ -49,10 +50,41 @@ dependencies:
   conditional_builder_null_safety: ^0.0.6
   image_picker: ^0.8.7+5
   cached_network_image: ^3.2.3
-  delayed_display: ^2.0.0
-  video_player: ^2.6.1
   sqflite: ^2.2.0+3
-  flutter_local_notifications: ^13.0.0
+  intl_phone_number_input: ^0.7.2
+  share_plus:
+  expandable: ^5.0.1
+  http_parser:
+  shimmer: ^2.0.0
+  animate_do: ^2.1.0
+  flutter_local_notifications:
+  google_fonts:
+  carousel_slider:
+
+
+  #video
+  video_player:
+  chewie:
+  iconly:
+
+  #voice
+  permission_handler:
+  social_media_recorder: ^0.2.0
+  voice_message_package:
+  audioplayers:
+
+  #fire_base
+  firebase_storage: ^11.0.14
+  cloud_firestore: ^4.7.0
+  firebase_auth: ^4.2.9
+  firebase_messaging: ^14.6.2
+  signalr_core:
+  connectivity_plus:
+
+  #location
+  geocoding: ^2.1.0
+  geolocator: ^9.0.2
+  comment_tree: ^0.3.0
 
 dev_dependencies:
   flutter_test:
@@ -77,18 +109,8 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
-    - assets/lang/
+    - assets/
 
-  fonts:
-    - family: 'bold'
-      fonts:
-        - asset: assets/fonts/Roboto-Bold.ttf
-    - family: 'medium'
-      fonts:
-        - asset: assets/fonts/Roboto-Medium.ttf
-    - family: 'regular'
-      fonts:
-        - asset: assets/fonts/Roboto-Regular.ttf
 flutter_icons:
   android: "launcher_icon"
   ios: true
@@ -134,3 +156,5 @@ flutter_icons:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+flutter_intl:
+  enabled: true

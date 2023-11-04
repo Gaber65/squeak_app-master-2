@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:squeak/core/widgets/components/styles.dart';
 import 'color_manager.dart';
 import 'font_manager.dart';
-import 'styles_manager.dart';
 import 'values_manager.dart';
 
 ThemeData getApplicationLightTheme() {
   return ThemeData(
-
     scaffoldBackgroundColor: ColorManager.sWhite,
     // app bar theme
     appBarTheme: AppBarTheme(
@@ -21,7 +20,7 @@ ThemeData getApplicationLightTheme() {
         color: ColorManager.sBlack,
       ),
       elevation: AppSize.s0,
-      titleTextStyle: getBoldStyle(
+      titleTextStyle: FontStyle().textStyle(
         fontSize: FontSize.s18,
         color: ColorManager.sBlack, // It will be changed
         // color: ColorManager.black,
@@ -42,7 +41,7 @@ ThemeData getApplicationLightTheme() {
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         foregroundColor: ColorManager.sBlack,
-        textStyle: getRegularStyle(
+        textStyle: FontStyle().textStyle(
           color: ColorManager.sBlack,
           fontSize: FontSize.s18,
         ),
@@ -79,83 +78,44 @@ ThemeData getApplicationLightTheme() {
 
     // _______/ It will be updated \_________________________
     textTheme: TextTheme(
-      titleLarge: getBoldStyle(
+      titleLarge: FontStyle().textStyle(
         fontSize: FontSize.s22,
         color: ColorManager.sBlack,
       ),
-      titleMedium: getBoldStyle(
+      titleMedium: FontStyle().textStyle(
         fontSize: FontSize.s18,
         color: ColorManager.sBlack,
       ),
-      titleSmall: getBoldStyle(
+      titleSmall: FontStyle().textStyle(
         color: ColorManager.sBlack,
         fontSize: FontSize.s16,
       ),
-      displayMedium: getRegularStyle(
+      displayMedium: FontStyle().textStyle(
         color: ColorManager.sBlack,
         fontSize: FontSize.s18,
       ),
-      displaySmall: getRegularStyle(
+      displaySmall: FontStyle().textStyle(
         color: ColorManager.gGrey,
         fontSize: FontSize.s14,
       ),
-      bodyMedium: getRegularStyle(
+      bodyMedium: FontStyle().textStyle(
         color: ColorManager.bBlack,
         fontSize: FontSize.s18,
       ),
-      bodySmall: getRegularStyle(
+      bodySmall: FontStyle().textStyle(
         color: ColorManager.gGrey,
         fontSize: FontSize.s16,
       ),
-      headlineLarge: getRegularStyle(
+      headlineLarge: FontStyle().textStyle(
         color: ColorManager.sBlack,
         fontSize: FontSize.s30,
       ),
-      headlineSmall: getRegularStyle(
+      headlineSmall: FontStyle().textStyle(
         color: ColorManager.sBlack,
         fontSize: FontSize.s25,
       ),
     ),
     // input decoration theme (text form field)
-    inputDecorationTheme: InputDecorationTheme(
-      fillColor: ColorManager.sWhite,
-      filled: true,
-      border: InputBorder.none,
-      // content padding
-      contentPadding: const EdgeInsets.all(AppPadding.p8),
-      // hint style
-      hintStyle: getRegularStyle(
-        color: ColorManager.gGrey,
-        fontSize: FontSize.s14,
-      ),
-      labelStyle: getRegularStyle(
-        color: ColorManager.gGrey,
-        fontSize: FontSize.s14,
-      ),
-      // enabled border style
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppSize.s50),
-        borderSide: BorderSide.none,
-      ),
-
-      // focused border style
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppSize.s50),
-        borderSide: BorderSide.none,
-      ),
-
-      // error border style
-      errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppSize.s50),
-        borderSide: BorderSide.none,
-      ),
-      // focused border style
-      focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppSize.s50),
-        borderSide: BorderSide.none,
-      ),
-      // label style
-    ),
   );
 }
 
@@ -172,15 +132,16 @@ ThemeData getApplicationDarkTheme() {
       backgroundColor: ColorManager.sBlack,
       iconTheme: const IconThemeData(color: ColorManager.sWhite),
       elevation: AppSize.s0,
-      titleTextStyle: getBoldStyle(
+      titleTextStyle: FontStyle().textStyle(
         fontSize: FontSize.s18,
+        fontWeight: FontWeight.bold,
         color: ColorManager.sWhite, // It will be changed
         // color: ColorManager.white,
       ),
     ),
 
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      selectedItemColor: Colors.teal,
+      selectedItemColor: appColorBtn,
       showSelectedLabels: true,
       showUnselectedLabels: true,
       backgroundColor: ColorManager.bBlack,
@@ -190,7 +151,7 @@ ThemeData getApplicationDarkTheme() {
       type: BottomNavigationBarType.fixed,
     ),
 
-    primarySwatch: ColorManager.mGreen,
+    primarySwatch: Colors.red,
     bottomSheetTheme: const BottomSheetThemeData(
       backgroundColor: ColorManager.bBlack,
       elevation: AppSize.s3,
@@ -199,7 +160,8 @@ ThemeData getApplicationDarkTheme() {
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         foregroundColor: ColorManager.sWhite,
-        textStyle: getRegularStyle(color: ColorManager.sWhite, fontSize: FontSize.s18),
+        textStyle: FontStyle()
+            .textStyle(color: ColorManager.sWhite, fontSize: FontSize.s18),
       ),
     ),
 
@@ -225,83 +187,42 @@ ThemeData getApplicationDarkTheme() {
     ),
 
     textTheme: TextTheme(
-      titleLarge: getBoldStyle(
+      titleLarge: FontStyle().textStyle(
         fontSize: FontSize.s22,
         color: ColorManager.sWhite,
       ),
-      titleMedium: getBoldStyle(
+      titleMedium: FontStyle().textStyle(
         fontSize: FontSize.s18,
         color: ColorManager.sWhite,
       ),
-      titleSmall: getBoldStyle(
+      titleSmall: FontStyle().textStyle(
         color: ColorManager.sWhite,
         fontSize: FontSize.s16,
       ),
-      displayMedium: getRegularStyle(
+      displayMedium: FontStyle().textStyle(
         color: ColorManager.sWhite,
         fontSize: FontSize.s18,
       ),
-      displaySmall: getRegularStyle(
+      displaySmall: FontStyle().textStyle(
         color: ColorManager.sWhite,
         fontSize: FontSize.s14,
       ),
-      bodyMedium: getRegularStyle(
+      bodyMedium: FontStyle().textStyle(
         color: ColorManager.sWhite,
         fontSize: FontSize.s18,
       ),
-      bodySmall: getRegularStyle(
+      bodySmall: FontStyle().textStyle(
         color: ColorManager.sWhite,
         fontSize: FontSize.s16,
       ),
-      headlineLarge: getRegularStyle(
+      headlineLarge: FontStyle().textStyle(
         color: ColorManager.sWhite,
         fontSize: FontSize.s30,
       ),
-      headlineSmall: getRegularStyle(
+      headlineSmall: FontStyle().textStyle(
         color: ColorManager.sWhite,
         fontSize: FontSize.s25,
       ),
-    ),
-    // // input decoration theme (text form field)
-    inputDecorationTheme: InputDecorationTheme(
-      fillColor: ColorManager.bBlack,
-      filled: true,
-      border: InputBorder.none,
-
-      // content padding
-      contentPadding: const EdgeInsets.all(AppPadding.p8),
-      // hint style
-      hintStyle: getLightStyle(
-        color: ColorManager.sWhite,
-        fontSize: FontSize.s14,
-      ),
-      labelStyle: getRegularStyle(
-        color: ColorManager.sWhite,
-        fontSize: FontSize.s14,
-      ),
-      // enabled border style
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppSize.s50),
-        borderSide: BorderSide.none,
-      ),
-
-      // focused border style
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppSize.s50),
-        borderSide: BorderSide.none,
-      ),
-
-      // error border style
-      errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppSize.s50),
-        borderSide: BorderSide.none,
-      ),
-      // focused border style
-      focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppSize.s50),
-        borderSide: BorderSide.none,
-      ),
-      // label style
     ),
   );
 }

@@ -3,9 +3,14 @@ import 'package:equatable/equatable.dart';
 import 'package:squeak/core/error/failure.dart';
 
 import '../entities/register_as_a_doctor.dart';
+import '../usecase/create_user_use_case.dart';
 
 abstract class BaseRegisterAsADoctorRepository {
   Future<Either<Failure, RegisterAsADoctor>> getRegisterAsADoctor(RegisterAsADoctorParameters parameters);
+
+  Future createUser(CreateUserParameters createUserParameters);
+  Future signUp(SignInParameters signUpParameters);
+  Future signIn(SignInParameters signInParameters);
 }
 
 class RegisterAsADoctorParameters extends Equatable {
@@ -36,4 +41,19 @@ class RegisterAsADoctorParameters extends Equatable {
     confirmationPassword,
     role,
   ];
+}
+
+class SignInParameters extends Equatable
+{
+  final String email;
+  final String password;
+
+  const SignInParameters({required this.email, required this.password});
+
+  @override
+  List<Object?> get props =>
+      [
+        email,
+        password,
+      ];
 }

@@ -1,6 +1,6 @@
 
 
-import 'package:squeak/core/utils/error_message_model.dart';
+import 'package:squeak/core/error/error_message_model.dart';
 
 class ServerException implements Exception
 {

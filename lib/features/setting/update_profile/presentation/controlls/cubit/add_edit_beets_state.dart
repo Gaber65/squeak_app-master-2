@@ -1,38 +1,81 @@
-
+import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:squeak/features/setting/update_profile/domain/entities/beeds_type_data.dart';
+import 'package:squeak/features/setting/update_profile/domain/entities/species_entities.dart';
 
-import '../../../../core/service/server_error.dart';
-import '../data/model/add_peets_model.dart';
-import '../data/model/edit_pets_model.dart';
-import '../domain/entities/add_peets_data.dart';
-import '../domain/entities/edit_pets_data.dart';
+import '../../../domain/entities/add_peets_data.dart';
+import '../../../domain/entities/edit_pets_data.dart';
 
 @immutable
 abstract class AddBeetsState {}
 
 class AddBeetsInitial extends AddBeetsState {}
-class AddBeetsLoadingState extends AddBeetsState {}
 
-class AddBeetsSuccessState extends AddBeetsState {
-  final AddNewPetData response;
+class GetAllSpeciesLoadingState extends AddBeetsState {}
 
-  AddBeetsSuccessState(this.response);
+class GetAllSpeciesSuccessState extends AddBeetsState {
+  SpeciesEntities speciesEntities;
+
+  GetAllSpeciesSuccessState(this.speciesEntities);
 }
 
-class AddBeetsErrorState extends AddBeetsState {
-  final ServerError error;
-
-  AddBeetsErrorState(this.error);}
-class EditPetResponseLoadingState extends AddBeetsState {}
-
-class EditPetResponseSuccessState extends AddBeetsState {
-  final EditPetData response;
-
-  EditPetResponseSuccessState(this.response);
+class GetAllSpeciesErrorState extends AddBeetsState {
+  final String error;
+  GetAllSpeciesErrorState(this.error);
 }
 
-class EditPetResponseErrorState extends AddBeetsState {
-  final ServerError error;
+class GetBreedBySpeciesIdLoadingState extends AddBeetsState {}
 
-  EditPetResponseErrorState(this.error);}
+class GetBreedBySpeciesIdSuccessState extends AddBeetsState {
+  BreedEntities breedEntities;
+
+  GetBreedBySpeciesIdSuccessState(this.breedEntities);
+}
+
+class GetBreedBySpeciesIdErrorState extends AddBeetsState {
+  final String error;
+  GetBreedBySpeciesIdErrorState(this.error);
+}
+
+class SqueakPitsImagePickedSuccessState extends AddBeetsState {
+  File file;
+  SqueakPitsImagePickedSuccessState(this.file);
+
+}
+
+class SqueakPitsImagePickedErrorState extends AddBeetsState {}
+
+class SqueakAddPetsLoadingState extends AddBeetsState {}
+
+class SqueakAddPetsSuccessState extends AddBeetsState {
+  final AddNewPetData addNewPetData;
+
+  SqueakAddPetsSuccessState(this.addNewPetData);
+}
+
+class SqueakUAddPetsErrorState extends AddBeetsState {
+  final String error;
+
+  SqueakUAddPetsErrorState(this.error);
+}
+
+
+class SqueakEditPetsLoadingState extends AddBeetsState {}
+
+class SqueakEditPetsSuccessState extends AddBeetsState {
+  final AddNewPetData addNewPetData;
+
+  SqueakEditPetsSuccessState(this.addNewPetData);
+}
+
+class SqueakEditPetsErrorState extends AddBeetsState {
+  final String error;
+
+  SqueakEditPetsErrorState(this.error);
+}
+
+
+class SqueakAddPetsFireLoadingState extends AddBeetsState {}
+class SqueakAddPetsFireSuccessState extends AddBeetsState {}
+class SqueakUAddPetsFireErrorState extends AddBeetsState {}

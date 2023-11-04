@@ -23,12 +23,14 @@ class TicketParameters extends Equatable {
     required this.comment,
     required this.email,
     required this.statues,
+    required this.fullName,
   });
 
   final String title;
   final String phone;
   final String comment;
   final String email;
+  final String fullName;
   final bool statues;
 
   @override
@@ -37,6 +39,6 @@ class TicketParameters extends Equatable {
     phone,
     comment,
     email,
-    statues,
+    statues,fullName
   ];
 }

@@ -1,63 +1,29 @@
-
-
-import '../../../../core/service/server_error.dart';
-import '../data/model/add_peets_model.dart';
-import '../data/model/beeds_type_model.dart';
-import '../domain/entities/beeds_type_data.dart';
-import '../domain/entities/find_pet_by_owner_id_data.dart';
+import '../../../domain/entities/find_pet_by_owner_id_data.dart';
 
 abstract class BreedTypeStates {}
 
 class BreedTypeInitialState extends BreedTypeStates {}
-class BreedTypeLoadingState extends BreedTypeStates {}
 
-class BreedTypeSuccessState extends BreedTypeStates {
-  final BreedTypeData response;
+class SqueakGetOwnerPitsLoadingState extends BreedTypeStates {}
 
-  BreedTypeSuccessState(this.response);
+class SqueakGetOwnerPitsSuccessState extends BreedTypeStates {
+  final FindPetByOwnerIdData ownerPetsEntities;
+  SqueakGetOwnerPitsSuccessState(this.ownerPetsEntities);
 }
 
-class BreedTypeErrorState extends BreedTypeStates {
-  final ServerError error;
-
-  BreedTypeErrorState(this.error);
-}
-class FindPetByOwnerIdInitialState extends BreedTypeStates {}
-class FindPetByOwnerIdLoadingState extends BreedTypeStates {}
-
-class FindPetByOwnerIdSuccessState extends BreedTypeStates {
-  final FindPetByOwnerIdData response;
-
-  FindPetByOwnerIdSuccessState(this.response);
+class SqueakUGetOwnerPitsErrorState extends BreedTypeStates {
+  final String error;
+  SqueakUGetOwnerPitsErrorState(this.error);
 }
 
-class FindPetByOwnerIdErrorState extends BreedTypeStates {
-  final ServerError error;
+class DeletePitsLoadingState extends BreedTypeStates {}
 
-  FindPetByOwnerIdErrorState(this.error);
+class DeletePitsSuccessState extends BreedTypeStates {}
 
-
-
-
-}
-
-
-class GetPetDataInitial extends BreedTypeStates {}
-class GetPetDataLoadingState extends BreedTypeStates {}
-
-
-class GetPetDataSuccessState extends BreedTypeStates {
-  final FindPetByOwnerIdData response;
-
-
-  GetPetDataSuccessState(this.response);
-}
-
-class GetPetDataErrorState extends BreedTypeStates {
-  final ServerError error;
-
-  GetPetDataErrorState(this.error);}
-
-
+class DeleteOwnerPitsErrorState extends BreedTypeStates {}
 
 class AppChangeModeState extends BreedTypeStates {}
+
+class GetAllUserPetLoadingHomePageStates extends BreedTypeStates {}
+class GetAllUserPetSuccessHomePageStates extends BreedTypeStates {}
+class GetAllUserPetErrorHomePageStates extends BreedTypeStates {}

@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:squeak/features/layout/domain/entites/speciality_entities.dart';
+import 'package:squeak/features/layout/domain/entites/clinic/speciality_entities.dart';
 
-import '../../../authentication/login/domain/entities/login.dart';
+import '../../../../authentication/login/domain/entities/login.dart';
 
 class AllClinicEntities extends Equatable {
   dynamic success;
@@ -23,7 +23,7 @@ class AllClinicEntities extends Equatable {
 }
 
 class AllClinicData extends Equatable {
-  final int count;
+  final dynamic count;
   List<Clinics> clinics = [];
 
   AllClinicData({
@@ -32,7 +32,9 @@ class AllClinicData extends Equatable {
   });
 
   @override
-  List<Object> get props => [count];
+  List<Object?> get props => [
+        count,
+      ];
 }
 
 class Clinics extends Equatable {
@@ -41,16 +43,18 @@ class Clinics extends Equatable {
   final String city;
   final String address;
   final String phone;
-  final SpecialitiesData speciality;
-  final Admin admin;
+  final String code;
+  final List<SpecialitiesData> speciality;
+  final Admin? admin;
   final String clinicId;
-  final String image;
+  final dynamic image;
   final List<dynamic> availabilities;
 
   const Clinics({
     required this.name,
     required this.location,
     required this.city,
+    required this.code,
     required this.address,
     required this.phone,
     required this.speciality,
@@ -61,14 +65,14 @@ class Clinics extends Equatable {
   });
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         name,
         location,
         city,
+        code,
         address,
         phone,
         speciality,
-        admin,
         clinicId,
         image,
         availabilities
@@ -76,9 +80,9 @@ class Clinics extends Equatable {
 }
 
 class Admin extends Equatable {
-  final String id;
-  final String fullName;
-  final String image;
+  final dynamic id;
+  final dynamic fullName;
+  final dynamic image;
   final int gender;
   final dynamic doctorCode;
   final dynamic specialization;
@@ -98,7 +102,5 @@ class Admin extends Equatable {
         fullName,
         image,
         gender,
-        doctorCode,
-        specialization,
       ];
 }

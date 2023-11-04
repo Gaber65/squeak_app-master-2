@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../../core/service/server_error.dart';
+import '../../../../authentication/login/domain/entities/login.dart';
+
 
 class FollowEntites {
   dynamic success;
@@ -21,7 +22,7 @@ class FollowEntites {
 }
 
 class FollowData extends Equatable {
-  FollowData({
+  const FollowData({
     required this.id,
     required this.fullName,
     required this.image,
@@ -30,13 +31,24 @@ class FollowData extends Equatable {
     required this.createdAt,
   });
 
-  final String id;
+  final dynamic id;
   final dynamic fullName;
   final dynamic image;
   final dynamic gender;
-  final bool isBlocked;
-  final String createdAt;
+  final dynamic isBlocked;
+  final dynamic createdAt;
 
+  Map<String, dynamic> toMap()
+  {
+    return {
+      'id':id,
+      'fullName':fullName,
+      'image':image,
+      'gender':gender,
+      'isBlocked':isBlocked,
+      'createdAt':createdAt,
+    };
+  }
   @override
   List<Object> get props => [
         id,

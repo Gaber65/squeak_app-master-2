@@ -11,13 +11,16 @@ abstract class BaseVerificationCodeRepository {
 
 class VerificationParameters extends Equatable {
   final String verificationToken;
+  final String email;
 
   const VerificationParameters({
     required this.verificationToken,
+    required this.email,
   });
 
   @override
   List<Object?> get props => [
     verificationToken,
+    email,
   ];
 }

@@ -1,31 +1,34 @@
 import 'package:equatable/equatable.dart';
 
 class Login extends Equatable {
+  final bool status;
   final LoginData? data;
-  final bool? status;
-  final String? messages;
+  final dynamic messages;
+  final int statusCode;
 
   const Login({
     required this.data,
     required this.status,
     required this.messages,
+    required this.statusCode,
   });
 
   @override
   List<Object?> get props => [
-        data,
         status,
-        messages,
+        data,
+        statusCode,
       ];
 }
 
 class LoginData extends Equatable {
-  final String? token;
-  final String? id;
-  final String? fullName;
-  final String? email;
-  final String? phone;
-  final int? role;
+  final String token;
+  final String refreshToken;
+  final String id;
+  final String fullName;
+  final String email;
+  final String phone;
+  final int role;
 
   const LoginData({
     required this.token,
@@ -34,8 +37,33 @@ class LoginData extends Equatable {
     required this.email,
     required this.phone,
     required this.role,
+    required this.refreshToken,
   });
 
   @override
-  List<Object?> get props => [];
+  List<Object> get props => [
+        token,
+        id,
+        fullName,
+        email,
+        phone,
+        role,
+        refreshToken,
+      ];
+}
+
+class Errors extends Equatable {
+  const Errors({
+    required this.phone,
+    required this.email,
+  });
+
+  final List<String> phone;
+  final List<String> email;
+
+  @override
+  List<Object> get props => [
+        phone,
+        email,
+      ];
 }

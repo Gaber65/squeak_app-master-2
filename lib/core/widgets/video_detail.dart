@@ -1,61 +1,144 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:squeak/core/widgets/components/styles.dart';
 import 'package:video_player/video_player.dart';
+import 'package:chewie/chewie.dart';
 
 /// Stateful widget to fetch and then display video content.
-class VideoApp extends StatefulWidget {
-   VideoApp({super.key, required this.video});
+class VideoFileApp extends StatefulWidget {
+  VideoFileApp({super.key, required this.video});
   File video;
   @override
-  _VideoAppState createState() => _VideoAppState();
+  _VideoFileAppState createState() => _VideoFileAppState();
 }
 
-class _VideoAppState extends State<VideoApp> {
-  late VideoPlayerController _controller;
+class _VideoFileAppState extends State<VideoFileApp> {
+  late VideoPlayerController videoPlayerController;
 
+  late ChewieController chewieController;
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.file(widget.video)
-      ..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-        setState(() {});
-      });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Video Demo',
-      home: Scaffold(
-        body: Center(
-          child: _controller.value.isInitialized
-              ? AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: VideoPlayer(_controller),
-                )
-              : Container(),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            setState(() {
-              _controller.value.isPlaying
-                  ? _controller.pause()
-                  : _controller.play();
-            });
-          },
-          child: Icon(
-            _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-          ),
-        ),
-      ),
+    videoPlayerController = VideoPlayerController.file(widget.video)
+      ..addListener(() => setState(() {}));
+    videoPlayerController.initialize();
+    chewieController = ChewieController(
+      videoPlayerController: videoPlayerController,
+      autoInitialize: true,
+      materialProgressColors: ChewieProgressColors(playedColor: appColorBtn),
+      errorBuilder: (context, message) {
+        return Center(
+          child: Text(message),
+        );
+      },
     );
   }
 
   @override
   void dispose() {
+    chewieController.dispose();
+    videoPlayerController.dispose();
     super.dispose();
-    _controller.dispose();
+  }
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 400,
+      width: double.infinity,
+      child: (videoPlayerController == null)
+          ? Container(
+              height: 600,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+            )
+          : videoPlayerController.value.isInitialized
+              ? AspectRatio(
+                  aspectRatio: videoPlayerController.value.size.width /
+                      videoPlayerController.value.size.height,
+                  child: Container(
+                    color: Colors.black,
+                    child: Chewie(
+                      controller: chewieController,
+                    ),
+                  ),
+                )
+              : const Center(
+                  child: CircularProgressIndicator.adaptive(),
+                ),
+    );
+  }
+}
+
+
+
+
+/// Stateful widget to fetch and then display video content.
+class VideoStringApp extends StatefulWidget {
+  VideoStringApp({super.key, required this.video});
+  String video;
+  @override
+  _VideoStringAppState createState() => _VideoStringAppState();
+}
+
+class _VideoStringAppState extends State<VideoStringApp> {
+  late VideoPlayerController videoPlayerController;
+
+  late ChewieController chewieController;
+  @override
+  void initState() {
+    super.initState();
+    videoPlayerController = VideoPlayerController.network(widget.video,)..addListener(() => setState(() {}));
+    videoPlayerController.initialize();
+    chewieController = ChewieController(
+      videoPlayerController: videoPlayerController,
+      autoInitialize: true,
+      materialProgressColors: ChewieProgressColors(playedColor: appColorBtn),
+      errorBuilder: (context, message) {
+        return Center(
+          child: Text(message),
+        );
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    chewieController.dispose();
+    videoPlayerController.dispose();
+    super.dispose();
+  }
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 200,
+      width: double.infinity,
+      child: (videoPlayerController == null)
+          ? Container(
+        height: 600,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+      )
+          : videoPlayerController.value.isInitialized
+          ? AspectRatio(
+        aspectRatio: videoPlayerController.value.size.width /
+            videoPlayerController.value.size.height,
+        child: Container(
+          color: Colors.black,
+          child: Chewie(
+            controller: chewieController,
+          ),
+        ),
+      )
+          : const Center(
+        child: CircularProgressIndicator.adaptive(),
+      ),
+    );
   }
 }

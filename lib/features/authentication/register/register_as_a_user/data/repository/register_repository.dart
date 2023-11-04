@@ -5,6 +5,8 @@ import 'package:squeak/features/authentication/register/register_as_a_user/data/
 import 'package:squeak/features/authentication/register/register_as_a_user/domain/entities/register.dart';
 import 'package:squeak/features/authentication/register/register_as_a_user/domain/repository/base_register_repository.dart';
 
+import '../../../register_as_a_doctor/domain/usecase/create_user_use_case.dart';
+
 
 
 class RegisterRepository extends BaseRegisterRepository
@@ -19,8 +21,9 @@ class RegisterRepository extends BaseRegisterRepository
     try{
       return Right(result);
     }on ServerException catch(failure){
-      return Left(ServerFailure(failure.statusErrorMessageModel.message));
+      return Left(ServerFailure(failure.statusErrorMessageModel.error.keys.first));
     }
   }
+
 
 }

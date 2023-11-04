@@ -9,6 +9,7 @@ class ChangeRegisterAsADoctorPasswordVisibility extends RegisterAsADoctorState{}
 class ChangeRegisterAsADoctorConPasswordVisibility extends RegisterAsADoctorState{}
 
 class GetRegisterAsADoctorLoadingState extends RegisterAsADoctorState{}
+
 class GetRegisterAsADoctorSuccessState extends RegisterAsADoctorState{
   final  RegisterAsADoctor registerAsADoctor;
 
@@ -17,4 +18,16 @@ class GetRegisterAsADoctorSuccessState extends RegisterAsADoctorState{
 class GetRegisterAsADoctorErrorState extends RegisterAsADoctorState{
   final String error;
   GetRegisterAsADoctorErrorState(this.error);
+}
+
+class LoadingRegisterState extends RegisterAsADoctorState {}
+class SuccessRegisterState extends RegisterAsADoctorState {}
+class ErrorRegisterState extends RegisterAsADoctorState {
+  String error ;
+
+  ErrorRegisterState(this.error);
+}
+class CreateUserSuccessState extends RegisterAsADoctorState{
+  String uid;
+  CreateUserSuccessState(this.uid);
 }

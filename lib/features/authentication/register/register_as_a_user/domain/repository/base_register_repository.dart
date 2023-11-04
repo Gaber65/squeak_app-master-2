@@ -3,13 +3,18 @@ import 'package:equatable/equatable.dart';
 import 'package:squeak/core/error/failure.dart';
 import 'package:squeak/features/authentication/register/register_as_a_user/domain/entities/register.dart';
 
+import '../../../register_as_a_doctor/domain/usecase/create_user_use_case.dart';
+
 
 
 abstract class BaseRegisterRepository {
   Future<Either<Failure, Register>> getUserRegister(RegisterParameters parameters);
+
+
 }
 
 class RegisterParameters extends Equatable {
+
   final String fullName;
   final String email;
   final String phone;

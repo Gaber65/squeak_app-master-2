@@ -5,12 +5,15 @@ class ResetPasswordModel extends ResetPassword {
   const ResetPasswordModel({
     required super.status,
     required super.messages,
+    required super.errors,
   });
 
   factory ResetPasswordModel.fromJson(Map<String, dynamic> json) {
     return ResetPasswordModel(
-      status: json['status'],
-      messages: json['messages'],
+      status: json['success'],
+      messages: json['message'],
+      errors: Map<String, List<dynamic>>.from(json['errors']),
+
     );
   }
 }

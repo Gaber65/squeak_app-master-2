@@ -1,15 +1,13 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../../core/service/service_locator.dart';
-import '../../domain/entities/availabilities/get_availabilities_entities.dart';
-import '../../domain/repository/base_availabilities_repository.dart';
-import '../../domain/use_case/availabilities/create_availabilities_use_case.dart';
-import '../../domain/use_case/availabilities/delete_availabilities_use_case.dart';
-import '../../domain/use_case/availabilities/get_availabilities_use_case.dart';
-import '../../domain/use_case/availabilities/update_availabilities_use_case.dart';
+import '../../../domain/entities/availabilities/get_availabilities_entities.dart';
+import '../../../domain/repository/base_availabilities_repository.dart';
+import '../../../domain/use_case/availabilities/create_availabilities_use_case.dart';
+import '../../../domain/use_case/availabilities/delete_availabilities_use_case.dart';
+import '../../../domain/use_case/availabilities/get_availabilities_use_case.dart';
+import '../../../domain/use_case/availabilities/update_availabilities_use_case.dart';
+import 'availabilities_state.dart';
 
-part 'availabilities_state.dart';
 
 class AvailabilitiesCubit extends Cubit<AvailabilitiesState> {
   AvailabilitiesCubit(
@@ -95,6 +93,7 @@ class AvailabilitiesCubit extends Cubit<AvailabilitiesState> {
     );
     result.fold((l) => emit(GetAvailabilitiesError()), (r) {
       availabilitiesEntities = r;
+      print(r);
       emit(GetAvailabilitiesSuccess(r));
     });
   }

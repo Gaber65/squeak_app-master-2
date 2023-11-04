@@ -1,8 +1,11 @@
 import '../../domain/entities/contact_us_entites.dart';
 
 class ContactUsModel extends ContactUsEntites {
-  const ContactUsModel(
-      {required super.status, required super.message, required super.data});
+  const ContactUsModel({
+    required super.status,
+    required super.message,
+    required super.data,
+  });
 
   factory ContactUsModel.fromJson(Map<String, dynamic> json) {
     return ContactUsModel(
@@ -40,7 +43,6 @@ class TicketModel extends Ticket {
       comment: json['comment'],
       email: json['email'],
       statues: json['statues'],
-      
     );
   }
 }

@@ -51,3 +51,12 @@ class ResetPasswordErrorState extends LoginState{
 
   ResetPasswordErrorState(this.error);
 }
+
+class LoadingLoginState extends LoginState {}
+
+class SuccessLoginState extends LoginState {
+  final String uId ;
+  SuccessLoginState(this.uId);
+}
+
+class ErrorLoginState extends LoginState {}

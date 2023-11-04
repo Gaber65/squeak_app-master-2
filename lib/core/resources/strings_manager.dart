@@ -6,9 +6,9 @@ class AppStrings {
   static const String email =  'Email Address';
   static const String address =  'Address';
   static const String enterUrEmail = 'Please enter your email address';
-  static const String checkYourEmail = 'Check Your Email';
+  static const String checkYourEmail = 'Your email check and write code ';
   static const String receiveEmail = 'Please enter your email to receive the instruction to reset your password';
-  static const String sendMeNow = 'Send me now';
+  static const String sendMeNow = 'Verification';
   static const String enterUrPassword = 'Please enter your password';
   static const String enterUrAddress = 'Please enter your address';
   static const String enterCharPassword = 'Password more than 6 charts';
@@ -28,7 +28,7 @@ class AppStrings {
   static const String male =  'Male';
   static const String female =  'Female';
   static const String verification =  'Verification';
-  static const String sentVerification =  'We have sent a verification code to';
+  static const String sentVerification =  'We will sent a verification code to your email Address';
   static const String receiveCode =  'Received Code';
   static const String enterCode =  'Please enter code your sent';
   static const String enterNewPassword =  'Please enter your new password';
@@ -39,7 +39,7 @@ class AppStrings {
   static const String comparePassword =  'Please enter your confirm password';
   static const String notEqualPassword =  'confirm password not equal password';
   static const String terms =  'By signing up you agree to our Terms of use and Privacy Policy';
-  static const String signUpAsADoctor =  'Sign up as a Doctor';
+  static const String signUpAsADoctor =  'Sign up as a Supplier';
   static const String alreadyHaveAccount =  'Already have account?';
   static const String fullName =  'Full Name';
   static const String phone =  'Phone';
@@ -52,6 +52,15 @@ class AppStrings {
   static const String signUp = 'Sign Up';
   static const String enterName = 'Please enter your Full Name';
   static const String enterCharNamePls = 'name more than 6 charts ';
+  static const String feeds = 'Feeds ';
+  static const String darkMode = 'Dark Mode';
+  static const String langMode = 'language Mode';
+  static const String booking = 'Booking';
+  static const String chat = '#Chat';
+  static const String addClinic = 'Add Clinic';
+  static const String search = 'Search Here';
+  static const String allClinic = 'All Clinics';
+  static const String allClinicFollow = 'All Clinics Follow';
 
 
 

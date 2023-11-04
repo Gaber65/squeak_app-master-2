@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:squeak/features/layout/domain/entites/speciality_entities.dart';
+import 'package:squeak/features/layout/domain/entites/clinic/speciality_entities.dart';
 
-import '../../../authentication/login/domain/entities/login.dart';
+import '../../../../authentication/login/domain/entities/login.dart';
 
 class AllClinicFollowerEntities extends Equatable {
   dynamic success;
